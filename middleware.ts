@@ -1,13 +1,13 @@
-import { authMiddleware } from '@clerk/nextjs/server';
+import { authMiddleware } from "@clerk/nextjs";
 
 // export default authMiddleware({
 //   publicRoutes: ['/', '/api/webhooks/clerk'],
 // });
 
 export default authMiddleware({
-  publicRoutes: ["/", "/app/api/webhooks/clerk"],
+  publicRoutes: ["/", "['/', '/api/webhooks/clerk', '/api/webhooks/stripe']"],
 });
 
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
